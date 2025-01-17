@@ -180,28 +180,12 @@ void hextobin_rev(iFrame *frame) {
         return;
      }
 
-  	 // Process all bytes (why direwolf?)
+  	 // Process all bytes 
      for (size_t i = 0; i < (size) * 8; i++) {
         size_t index = i / 8;
         uint8_t mask = 0x01 << (i % 8); //Start from LSB
         bin[i] = (frame->ax25Frame[index] & mask) ? 1 : 0;
     }
-
-  /* 
-    // Process all bytes except the last three
-     for (size_t i = 0; i < (size - 3) * 8; i++) {
-        size_t index = i / 8;
-        uint8_t mask = 0x01 << (i % 8); //Start from LSB
-        bin[i] = (frame->ax25Frame[index] & mask) ? 1 : 0;
-    }
-
-    // Process the last 3 bytes from MSB to LSB
-    for (size_t i = (size - 3) * 8; i < size * 8; i++) {
-        size_t index = i / 8;
-        uint8_t mask = 0x80 >> (i % 8); // Start from MSB
-        bin[i] = (frame->ax25Frame[index] & mask) ? 1 : 0;
-      }
-*/
 
     frame->binAx25FrameSize = size * 8;
     frame->binAx25Frame = bin;

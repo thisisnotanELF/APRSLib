@@ -5,7 +5,7 @@
 #include <string.h>
 #include "aprs.h"
 #include "aprsConfig.h"
-#include "ax25Lib/ax25.h"
+#include "ax25.h"
 
 
 telemetryInfoFrame *initTFrame(void)
